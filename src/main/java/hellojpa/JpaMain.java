@@ -24,9 +24,14 @@ public class JpaMain {
         try {
 
 //            1. 회원 등록
+            // 비영속
 //            Member member = new Member();
 //            member.setId(2L);
 //            member.setName("HelloB");
+
+            // 영속 상태
+            // 영속 상태에서 db에 쿼리가 날라가지 않음
+            // 트랜잭션을 커밋하는 시점에 영속성 컨텍스트에 있는 db에 쿼리가 날라감 -> tx.commit();
 //            em.persist(member);
 
 //            2.회원 삭제
