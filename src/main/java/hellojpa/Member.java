@@ -1,15 +1,16 @@
 package hellojpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "MBR")
 public class Member {
     // Entity = 데이터베이스 테이블과 매핑되는 클래스
     @Id
     private long id;
+    @Column(unique=true, length = 10)
     private String name;
 
     // JPA는 기본적으로 내부적으로 리플렉션 등을 사용하기 때문에 동적으로 객체 생성 필요
