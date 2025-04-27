@@ -19,10 +19,8 @@ public class JpaMain {
         // 호출 후 실제 code 작성
         try {
             Member member = new Member();
-            member.setId(3L);
+//            member.setId("ID_A");
             member.setUsername("C");
-            member.setRoleType(RoleType.GUEST);
-
             em.persist(member);
 
             tx.commit();
