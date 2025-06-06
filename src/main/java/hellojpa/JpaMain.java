@@ -19,11 +19,14 @@ public class JpaMain {
         // 호출 후 실제 code 작성
         try {
             Member member = new Member();
-//            member.setId("ID_A");
             member.setUsername("C");
-            em.persist(member);
 
-            tx.commit();
+            System.out.println("==============");
+            em.persist(member); // db 조회로 id 값 가져옴 (현재 시점에 insert x)
+            System.out.println("member.id = " + member.getId());
+            System.out.println("==============");
+
+            tx.commit(); // 시퀀스 전략은 커밋 시점에 insert문 보냄
         } catch (Exception e) {
             tx.rollback();
         } finally {
