@@ -7,7 +7,6 @@
     <list default="true" id="9ce7a00d-1d65-4d9a-bda9-c2b7ceecd940" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +94,7 @@
       <updated>1744546620135</updated>
       <workItem from="1744546622071" duration="640000" />
       <workItem from="1746939154274" duration="1765000" />
-      <workItem from="1749199559039" duration="1911000" />
+      <workItem from="1749199559039" duration="2827000" />
     </task>
     <servers />
   </component>
