@@ -7,10 +7,11 @@ import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
+@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
 public class Member {
     // Entity = 데이터베이스 테이블과 매핑되는 클래스
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq_generator")
     // AUTO : DB 방언에 맞춰 자동 시퀀스 생성
     // mySql : auto_increment
     // 참고 : 각 테이블마다 시퀀스 부여하고 싶다면 @SequenceGenerator 사용
