@@ -1,6 +1,7 @@
 package hellojpa;
 
 import javax.persistence.*;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -21,20 +22,25 @@ public class JpaMain {
             // 저장
             Team team = new Team();
             team.setName("teamA");
-            em.persist(team); // id에 값이 들어감 -> 영속 상태가 되면 무조건 pk값이 세팅되고 영속 상태가 됨
+            em.persist(team);
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeam(team); // jpa가 알아서 pk값을 꺼내서 fk값에 insert할 때 fk값으로 사용
-
+            member.setTeam(team);
             em.persist(member);
+
+            em.flush();
+            em.clear();
 
             // 조회
             Member findMember = em.find(Member.class, member.getId());
-            Team findTeam = findMember.getTeam();
-            System.out.println("findTeam: " + findTeam.getName());
+            List<Member> members = findMember.getTeam().getMembers();
 
-            tx.commit(); // 시퀀스 전략은 커밋 시점에 insert문 보냄
+            for (Member m : members) {
+                System.out.println("m.getUsername() = " + m.getUsername());
+            }
+
+            tx.commit();
         } catch (Exception e) {
             tx.rollback();
         } finally {

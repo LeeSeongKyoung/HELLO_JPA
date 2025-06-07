@@ -19,6 +19,8 @@ public class Member {
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
 
+    // **외래 키가 있는 곳을 주인으로 정하기(FK)
+    // ~ToOne이 있는 곳이 주인 (다 쪽이 무조건 연관관계의 주인)
     @ManyToOne // 관계 표시 => Member : Team = N : 1 (다대일구조)
     @JoinColumn(name = "TEAM_ID") // 조인하는 컬럼명 표시
     private Team team;
