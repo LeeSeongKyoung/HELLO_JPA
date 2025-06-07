@@ -7,22 +7,21 @@ import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
-@SequenceGenerator(
-        name = "MEMBER_SEQ_GENERATOR",
-        sequenceName = "MEMBER_SEQ", //매핑할 데이터베이스 시퀀스 이름
-        initialValue = 1, allocationSize = 1) // 50 시퀀스 한번에 미리 값을 올려두는 방식으로 쓰임
 public class Member {
-    // Entity = 데이터베이스 테이블과 매핑되는 클래스
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "MEMBER_SEQ_GENERATOR")
+    @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "USERNAME")
     private String username;
 
-    public Member() {
-    }
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
+
+    @ManyToOne // 관계 표시 => Member : Team = N : 1 (다대일구조)
+    @JoinColumn(name = "TEAM_ID") // 조인하는 컬럼명 표시
+    private Team team;
 
     public Long getId() {
         return id;
@@ -38,5 +37,13 @@ public class Member {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }
