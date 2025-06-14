@@ -26,18 +26,20 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeam(team);
+            member.changeTeam(team); //**
             em.persist(member);
+
+            // team.getMembers().add(member); // ** -
+            // 양방향 매핑 시에 영속관계가 주인이 아닌 역방향에만 값을 넣어 외래키 값을 넣는 경우 조심해야함
 
             em.flush();
             em.clear();
 
-            // 조회
-            Member findMember = em.find(Member.class, member.getId());
-            List<Member> members = findMember.getTeam().getMembers();
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
 
             for (Member m : members) {
-                System.out.println("m.getUsername() = " + m.getUsername());
+                System.out.println("m = " + m.getUsername());
             }
 
             tx.commit();
