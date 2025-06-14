@@ -36,9 +36,11 @@ public class JpaMain {
             Team findTeam = em.find(Team.class, team.getId());
             List<Member> members = findTeam.getMembers();
 
-            for (Member m : members) {
-                System.out.println("m = " + m.getUsername());
-            }
+            // 양방향 매핑시에 무한 루프 조심
+            // 롬복에서 toString 만드는 건 웬만하면 사용x
+            System.out.println("=========================");
+            System.out.println("members: " + findTeam);
+            System.out.println("=========================");
 
             tx.commit();
         } catch (Exception e) {
