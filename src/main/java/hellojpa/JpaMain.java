@@ -26,11 +26,9 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
-            member.changeTeam(team); //**
             em.persist(member);
 
-            // team.getMembers().add(member); // ** -
-            // 양방향 매핑 시에 영속관계가 주인이 아닌 역방향에만 값을 넣어 외래키 값을 넣는 경우 조심해야함
+            team.addMember(member);
 
             em.flush();
             em.clear();
